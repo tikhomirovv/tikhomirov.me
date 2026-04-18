@@ -3,16 +3,20 @@
 import "terminal.css";
 import "../styles/global.css";
 import YandexMetrika from "../components/YandexMetrika.astro";
+import type { Lang } from "../i18n/config";
+import { defaultLang } from "../i18n/config";
 
 interface Props {
   title: string;
+  /** BCP 47 language tag for <html lang>. */
+  lang?: Lang;
 }
 
-const { title } = Astro.props;
+const { title, lang = defaultLang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

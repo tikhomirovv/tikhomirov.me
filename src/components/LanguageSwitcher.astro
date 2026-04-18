@@ -1,0 +1,22 @@
+---
+/**
+ * Link to the same logical route in the other locale (astro:i18n URLs).
+ */
+import { getRelativeLocaleUrl } from "astro:i18n";
+import {
+  langFromPath,
+  otherLocale,
+  routeKeyFromPath,
+} from "../i18n/routes";
+
+const pathname = Astro.url.pathname;
+const current = langFromPath(pathname);
+const target = otherLocale(current);
+const key = routeKeyFromPath(pathname);
+const href = getRelativeLocaleUrl(target, key);
+const label = target === "ru" ? "Русский" : "English";
+---
+
+<p class="lang-switch">
+  <a href={href} hreflang={target} lang={target}>{label}</a>
+</p>

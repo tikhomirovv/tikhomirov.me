@@ -45,6 +45,17 @@ body {
   display: block;
 }
 
+/* Language switcher row (same width as .container). */
+.lang-bar-wrap {
+  margin-bottom: 0;
+}
+
+.lang-switch {
+  margin-top: 0;
+  text-align: right;
+  font-size: 0.92em;
+}
+
 /* Keep generous vertical rhythm for figures (terminal.css sets figure margin to 0). */
 figure {
   margin: 3em 0;
@@ -73,4 +84,13 @@ body.terminal h4 {
 body.terminal h5,
 body.terminal h6 {
   font-size: 1.04em;
+}
+
+/*
+ * terminal.css forces .terminal strong { font-size: var(--global-font-size) }.
+ * That resets bold text inside our scaled headings to body size, so the name
+ * looked smaller than “Меня зовут …”. Inherit the heading size instead.
+ */
+body.terminal :is(h1, h2, h3, h4, h5, h6) strong {
+  font-size: inherit;
 }

@@ -1,37 +1,5 @@
 ---
-/**
- * Resume / portfolio page: body comes from src/content/portfolio/resume.md
- * so you can edit copy in Markdown without touching this file.
- */
-import Layout from "../layouts/Layout.astro";
-import { getEntry, render } from "astro:content";
-
-const entry = await getEntry("portfolio", "resume");
-if (!entry) {
-  throw new Error('Missing content: portfolio/resume.md (expected collection id "resume").');
-}
-
-const { Content } = await render(entry);
-const { title } = entry.data;
+import PortfolioPage from "../components/pages/PortfolioPage.astro";
 ---
 
-<Layout title={title}>
-  <div class="container md-content">
-    <Content />
-    <p class="back">
-      <a href="/">← Back to home</a>
-    </p>
-  </div>
-</Layout>
-
-<style>
-  .md-content :global(hr) {
-    border: none;
-    border-top: 1px solid var(--progress-bar-background);
-    margin: 2.5em 0;
-  }
-
-  .back {
-    margin-top: 3em;
-  }
-</style>
+<PortfolioPage lang="en" />

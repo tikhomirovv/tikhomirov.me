@@ -1,0 +1,52 @@
+---
+/**
+ * Renders portfolio markdown for the active locale.
+ */
+import Layout from "../../layouts/Layout.astro";
+import LanguageSwitcher from "../LanguageSwitcher.astro";
+import { getEntry, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { Lang } from "../../i18n/config";
+import { portfolioUi } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const entryId = `${lang}/resume` as const;
+const entry = await getEntry("portfolio", entryId);
+if (!entry) {
+  throw new Error(`Missing portfolio content: ${entryId}.md`);
+}
+
+const { Content } = await render(entry);
+const { title } = entry.data;
+
+const homeHref = getRelativeLocaleUrl(lang, "");
+---
+
+<Layout title={title} lang={lang}>
+  <div class="container lang-bar-wrap">
+    <LanguageSwitcher />
+  </div>
+  <div class="container md-content">
+    <Content />
+    <p class="back">
+      <a href={homeHref}>{portfolioUi[lang].back}</a>
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .md-content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--progress-bar-background);
+    margin: 2.5em 0;
+  }
+
+  .back {
+    margin-top: 3em;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LanguageSwitcher from "../LanguageSwitcher.astro";
+import { getEntry, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { Lang } from "../../i18n/config";
+import { homeFooter } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const entryId = `${lang}/body` as const;
+const entry = await getEntry("home", entryId);
+if (!entry) {
+  throw new Error(`Missing home content: ${entryId}.md`);
+}
+
+const { Content } = await render(entry);
+const { title } = entry.data;
+
+const portfolioHref = getRelativeLocaleUrl(lang, "portfolio");
+const cvLabel = homeFooter[lang].cv;
+---
+
+<Layout title={title} lang={lang}>
+  <div class="container lang-bar-wrap">
+    <LanguageSwitcher />
+  </div>
+  <div class="container">
+    <Content />
+
+    <p>
+      <a href={portfolioHref}>{cvLabel}</a> |
+      <a href="https://github.com/tikhomirovv" target="_blank">github</a> |
+      <a href="https://gitlab.com/vtikhomirov" target="_blank">gitlab</a> |
+      <a href="mailto:v.tikhomirov.dev+site@gmail.com" target="_blank">email</a>
+    </p>
+  </div>
+</Layout>

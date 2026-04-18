@@ -3,8 +3,17 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 /**
- * Markdown-driven pages (e.g. resume / portfolio).
- * Edit files under src/content/portfolio — the Astro page only renders the entry.
+ * Markdown per locale: src/content/home/<lang>/…
+ */
+const home = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/home" }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
+/**
+ * Markdown per locale: src/content/portfolio/<lang>/…
  */
 const portfolio = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/portfolio" }),
@@ -14,4 +23,4 @@ const portfolio = defineCollection({
   }),
 });
 
-export const collections = { portfolio };
+export const collections = { home, portfolio };
