@@ -6,7 +6,7 @@ title: "Valerii Tikhomirov | tikhomirov.me"
 
 <h2 style="font-weight: normal">My name is <strong>Valerii Tikhomirov</strong>.</h2>
 
-👨‍💻 I am a full-stack developer with 13+ years of experience, specializing in web applications, microservices, backend development, REST APIs, and SPAs. I work as an independent developer, preferring solo projects where I can fully immerse myself in solving complex technical challenges.
+👨‍💻 I am a full-stack developer with 16+ years of experience, specializing in web applications, microservices, backend development, REST APIs, and SPAs. I work as an independent developer, preferring solo projects where I can fully immerse myself in solving complex technical challenges.
 
 Core stack: **PHP**, **Go**, **JavaScript/TypeScript**, **Vue.js**.
 
