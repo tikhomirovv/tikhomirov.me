@@ -17,6 +17,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "license": "MIT",
   "dependencies": {
-    "@astrojs/check": "^0.9.8"
+    "@astrojs/check": "^0.9.8",
+    "terminal.css": "^0.7.5"
   }
 }

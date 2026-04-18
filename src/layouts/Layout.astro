@@ -1,4 +1,6 @@
 ---
+// Base styles from the framework, then site theme + layout tweaks (see global.css).
+import "terminal.css";
 import "../styles/global.css";
 import YandexMetrika from "../components/YandexMetrika.astro";
 
@@ -17,8 +19,11 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
-  <body>
-    <slot />
+  <body class="terminal">
+    <!-- Single place for page chrome: consistent top spacing for all routes. -->
+    <main class="site-main">
+      <slot />
+    </main>
     <YandexMetrika />
   </body>
 </html>
