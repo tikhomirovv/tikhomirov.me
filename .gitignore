@@ -1,3 +1,6 @@
+# Astro generated (content types, sync) — regenerate with `npx astro sync`
+.astro
+
 .idea
 .vscode
 .parcel-cache
