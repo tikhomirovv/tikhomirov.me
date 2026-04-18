@@ -34,7 +34,11 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install dependencies
         run: bun i
+      # PUBLIC_YM_ID is baked into the static client bundle at build time (Astro).
+      # Add repository secret PUBLIC_YM_ID: Settings → Secrets and variables → Actions.
       - name: Build
+        env:
+          PUBLIC_YM_ID: ${{ secrets.PUBLIC_YM_ID }}
         run: bun run build
       - name: Setup Pages
         uses: actions/configure-pages@v4

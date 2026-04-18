@@ -1,0 +1,19 @@
+---
+/**
+ * Third-party analytics in a dedicated component so layouts stay readable.
+ * Astro recommends moving client JS into imported modules:
+ * https://docs.astro.build/en/tutorial/3-components/4
+ *
+ * We only emit the script tag when PUBLIC_YM_ID exists at build time, so CI builds
+ * without secrets do not ship an empty client chunk.
+ */
+const ymEnabled = Boolean(import.meta.env.PUBLIC_YM_ID);
+---
+
+{
+  ymEnabled ? (
+    <script>
+      import "../scripts/yandex-metrika.ts";
+    </script>
+  ) : null
+}
