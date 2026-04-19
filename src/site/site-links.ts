@@ -14,20 +14,11 @@ export const SITE_URL = {
   telegram: "https://t.me/ambivalerii",
 } as const;
 
-/** Mailbox addresses (without `mailto:`). */
-export const SITE_EMAIL = {
-  /** Primary inbox for contact and resume. */
-  primary: "v.tikhomirov.dev@gmail.com",
-  /**
-   * Tagged address so mail from the public site footer is easy to filter.
-   * Used on the English homepage “Links” strip.
-   */
-  siteTagged: "v.tikhomirov.dev+site@gmail.com",
-} as const;
+/**
+ * Public contact mailbox (without `mailto:`).
+ * Plus-address tag (`+site`) makes it easy to filter messages that people send from this website.
+ */
+export const SITE_EMAIL = "v.tikhomirov.dev+site@gmail.com";
 
-/** Ready-to-use mailto targets for `href`. */
-export const SITE_MAILTO = {
-  primary: `mailto:${SITE_EMAIL.primary}`,
-  /** Optional tagged inbox for site-originated mail (not currently linked in the UI). */
-  siteTagged: `mailto:${SITE_EMAIL.siteTagged}`,
-} as const;
+/** Ready-to-use `mailto:` URL for every contact link in Astro components. */
+export const SITE_MAILTO = `mailto:${SITE_EMAIL}`;
