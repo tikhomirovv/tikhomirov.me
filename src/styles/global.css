@@ -2,7 +2,14 @@
  * Site-specific layer on top of terminal.css (npm).
  * Theme vars + layout; typography, lists, links, and markdown come from the framework.
  * Docs: https://github.com/Gioni06/terminal.css
+ *
+ * Tailwind v4: theme + utilities only (no preflight.css).
+ * Preflight would reset margins, lists, and headings and fight terminal.css.
  */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 :root {
   /* Dark palette (terminal.css defaults to light). */

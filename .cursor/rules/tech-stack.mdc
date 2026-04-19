@@ -1,0 +1,26 @@
+---
+description: Project tech stack and package manager (Bun, Astro, Tailwind)
+alwaysApply: true
+---
+
+# Tech stack
+
+Use this stack when suggesting commands, tooling, and dependencies.
+
+## Package manager and runtime
+
+- **Bun** is the package manager and script runner for this repo.
+- Prefer `bun install`, `bun add`, `bun remove`, `bun run <script>`, and `bunx <tool>` over npm, pnpm, yarn, or npx unless the user explicitly asks otherwise.
+- Do not assume `node_modules` was installed with npm unless the user says so.
+
+## Application framework
+
+- **Astro** (~v5) for the site; static output is the default deployment shape.
+- **Vite** is used under Astro; **Tailwind CSS v4** via `@tailwindcss/vite`.
+- **TypeScript** for typed code where applicable.
+
+## Site structure notes
+
+- **i18n**: default locale `en`, also `ru`; default locale is not prefixed in URLs (`prefixDefaultLocale: false`).
+
+When proposing terminal commands on Windows, keep **PowerShell** syntax in mind if the user prefers shell examples in chat.

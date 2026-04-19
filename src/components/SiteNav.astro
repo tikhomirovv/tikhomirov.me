@@ -36,7 +36,12 @@ const items =
 
         return (
           <a
-            class:list={[{ active: isActive }]}
+            class:list={[
+              { active: isActive },
+              // Single focus indicator: outline only (ring+offset looked like a second “halo”; terminal.css has no link :focus rules).
+              // focus:outline-none removes the browser’s default focus ring on mouse focus; keyboard keeps :focus-visible outline.
+              "rounded-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--primary-color)",
+            ]}
             href={href}
             aria-current={isActive ? "page" : undefined}
           >
