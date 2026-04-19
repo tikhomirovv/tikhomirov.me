@@ -34,8 +34,8 @@
 }
 
 body {
-  /* Slight inset; terminal.css body is otherwise flush to the viewport. */
-  padding: 10px;
+  /* Slight inset; terminal.css body is otherwise flush to the viewport. Use rem for spacing scale consistency. */
+  padding: 0.625rem;
 }
 
 .container {
@@ -61,6 +61,20 @@ body {
   margin-top: 0;
   text-align: right;
   font-size: 0.92em;
+}
+
+/*
+ * Language switcher: treat as tertiary chrome (Refactoring UI — hierarchy).
+ * terminal.css paints all links as primary + strong hover fill; soften to match nav.
+ */
+.lang-switch a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  background-color: transparent;
+  color: var(--primary-color);
 }
 
 /* Keep generous vertical rhythm for figures (terminal.css sets figure margin to 0). */
@@ -120,7 +134,63 @@ body.terminal :is(h1, h2, h3, h4, h5, h6) strong {
 
 .site-nav a:hover,
 .site-nav a.active {
+  background-color: transparent;
   color: var(--primary-color);
+}
+
+/*
+ * Keyboard focus: one outline style everywhere we own in-page links (nav, lang, cards, footer links, markdown).
+ * terminal.css does not style link focus; this replaces inconsistent UA rings.
+ */
+.site-nav a:focus,
+.lang-switch a:focus,
+.site-card a:focus,
+.contact-strip a:focus,
+.cta-block a:focus,
+.md-content :is(a, area):focus {
+  outline: none;
+}
+
+.site-nav a:focus-visible,
+.lang-switch a:focus-visible,
+.site-card a:focus-visible,
+.contact-strip a:focus-visible,
+.cta-block a:focus-visible,
+.md-content :is(a, area):focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/*
+ * terminal.css `a:hover` uses inverse fill; neutralize inside cards and text strips so hover stays “lightweight”.
+ */
+.site-card a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+.site-card a:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.contact-strip a:hover,
+.cta-block a:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.cta-block a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+/* Extra air between section title and following content (hierarchy via spacing). */
+.section-block > h2 {
+  margin-bottom: 1.75rem;
 }
 
 .page-intro {
