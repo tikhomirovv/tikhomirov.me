@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteNav from "../components/SiteNav.astro";
+---
+
+<Layout
+  title="Selected Work | Valerii Tikhomirov"
+  lang="en"
+  description="Selected backend-focused case studies: MindLog, a Go mobile backend, CRM redesign, and supporting microservices."
+>
+  <SiteNav lang="en" showLanguageSwitcher={false} />
+
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Selected work</p>
+      <h1>Examples of backend-heavy product work, ownership, and reliability-focused execution.</h1>
+      <p class="lead">
+        These are the strongest public-safe examples of the kind of work I am usually most useful for:
+        business-critical systems, messy backend areas, migrations, performance work, and product logic that
+        cannot be treated casually.
+      </p>
+    </header>
+
+    <section class="case-block">
+      <h2>MindLog</h2>
+      <p class="case-meta">Founder &amp; Primary Engineer · Product ownership across backend, infrastructure, billing, and supporting systems</p>
+      <ul>
+        <li>Built and continue to run the core product architecture, REST API, database, SPA, CI/CD workflows, and supporting services.</li>
+        <li>Executed a high-risk infrastructure and domain migration with controlled cutover planning to protect live user data and reduce downtime.</li>
+        <li>Designed layered defenses against sustained brute-force attacks, including rate limiting, IP-based controls, 2FA, session awareness, and proof-of-work captcha.</li>
+        <li>Built and evolved billing flows with safe auto-renewal, plan switching, proportional refunds, and automated receipt handling.</li>
+      </ul>
+    </section>
+
+    <section class="case-block">
+      <h2>Go mobile backend</h2>
+      <p class="case-meta">Primary backend owner for a mobile product in the meditation / affirmations space</p>
+      <ul>
+        <li>Handled business-logic-heavy backend work rather than simple transport, including streak and recovery logic for a tree-growth mechanic.</li>
+        <li>Reduced a slow dashboard flow from 20+ seconds to around 1 second through caching and SQL-level improvements in a GraphQL-heavy path.</li>
+        <li>Worked through subscription-related backend issues, timezone normalization, scheduled push logic, and multilingual email templating.</li>
+        <li>Coordinated backend behavior with mobile engineers, DevOps, and adjacent services.</li>
+      </ul>
+    </section>
+
+    <section class="case-block">
+      <h2>Call-center CRM</h2>
+      <p class="case-meta">Long-running backend responsibility with redesign and PostgreSQL-heavy improvement work</p>
+      <ul>
+        <li>Took ownership of a fragile bonus-calculation subsystem with poor legacy architecture and recurring correctness problems.</li>
+        <li>Reworked the design around raw data preservation and safe recalculation, making recovery possible and reducing the risk of irreversible issues.</li>
+        <li>Improved PostgreSQL-heavy reporting and calculations through query cleanup, indexing, and more advanced SQL work.</li>
+        <li>Worked on reliability and maintainability, not just feature delivery.</li>
+      </ul>
+    </section>
+
+    <section class="case-block">
+      <h2>Statistics and push microservices</h2>
+      <p class="case-meta">Parallel ownership of supporting services within a larger product area</p>
+      <ul>
+        <li>Maintained multiple supporting backend services in parallel with CRM responsibilities.</li>
+        <li>Worked with event collection and aggregation flows, where one service stored raw data and another aggregated it for downstream consumers.</li>
+        <li>Maintained integrations and SDK support across both PHP and Go ecosystems.</li>
+      </ul>
+    </section>
+
+    <section class="case-block">
+      <h2>Earlier ownership background</h2>
+      <p class="case-meta">Long-term end-to-end product responsibility was present early in my career as well</p>
+      <ul>
+        <li>Built and evolved a custom booking-like platform from the ground up with long-term ownership across backend, frontend, infrastructure, admin workflows, partner tools, and customer-facing functionality.</li>
+        <li>Worked on internal backend systems, auditing, optimization, and architecture changes across several earlier roles.</li>
+      </ul>
+    </section>
+
+    <section class="section-block cta-block">
+      <h2>More detail</h2>
+      <p>
+        For a structured background summary, see the <a href="/portfolio">resume</a>. For collaboration format and fit,
+        see <a href="/work-with-me">work with me</a>.
+      </p>
+    </section>
+  </div>
+</Layout>

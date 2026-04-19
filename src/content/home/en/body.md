@@ -2,18 +2,14 @@
 title: "Valerii Tikhomirov | tikhomirov.me"
 ---
 
-# What’s up! ✋
+# Valerii Tikhomirov
 
-<h2 style="font-weight: normal">My name is <strong>Valerii Tikhomirov</strong>.</h2>
+## Backend-Focused Senior Full-Stack Engineer
 
-👨‍💻 I am a full-stack developer with 16+ years of experience, specializing in web applications, microservices, backend development, REST APIs, and SPAs. I work as an independent developer, preferring solo projects where I can fully immerse myself in solving complex technical challenges.
+I help improve SaaS products, APIs, internal tools, and other critical backend systems.
 
-Core stack: **PHP**, **Go**, **JavaScript/TypeScript**, **Vue.js**.
+My strongest work is backend-heavy product engineering that needs ownership, reliability, and low-management-overhead execution. In recent years, that has included billing and subscriptions, production security, infrastructure migration, business logic, PostgreSQL-heavy optimization, and long-running service maintenance.
 
-Currently passionate about AI/LLM integration and neural network implementation in web applications. I actively use LLM-assisted programming with Cursor and explore MCP-server technologies.
+I built and continue to run [MindLog](https://mindlog.app), where I carry major solo ownership across backend, infrastructure, billing, product logic, and supporting systems. I have also worked across CRM, supporting microservices, and a Go-based mobile backend, usually in the parts of a system that needed stronger engineering judgment or recovery-oriented thinking.
 
-🏗️ I am the creator and sole developer of [MindLog](https://mindlog.app), a comprehensive personal journaling service. This project demonstrates my ability to independently build and maintain complex applications from concept to production. Taking personal notes helps to keep thoughts organized, improve writing skills, achieve goals, capture important ideas, relieve stress, boost memory, and inspire creativity. Try it!
-
-🔧 Sometimes I write [Telegram](https://github.com/tikhomirovv/gpt-bot) [bots](https://github.com/tikhomirovv/llm-telegram-publisher-bot) and [development utilities](https://github.com/tikhomirovv/go-template-files).
-
-🐈‍⬛ Outside of programming, I enjoy composing music in Ableton, singing and playing the guitar, reading books, and petting my two black cats.
+I work best in remote, flexible, project-based or contract collaborations where I can take responsibility for an important product area and move it forward carefully.

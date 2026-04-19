@@ -1,0 +1,45 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import type { Lang } from "../i18n/config";
+
+interface Props {
+  lang?: Lang;
+  showLanguageSwitcher?: boolean;
+}
+
+const { lang = "en", showLanguageSwitcher = true } = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const items =
+  lang === "en"
+    ? [
+        { href: getRelativeLocaleUrl(lang, ""), label: "home" },
+        { href: "/selected-work", label: "selected work" },
+        { href: "/work-with-me", label: "work with me" },
+        { href: getRelativeLocaleUrl(lang, "portfolio"), label: "resume" },
+        { href: "/contact", label: "contact" },
+      ]
+    : [
+        { href: getRelativeLocaleUrl(lang, ""), label: "home" },
+        { href: getRelativeLocaleUrl(lang, "portfolio"), label: "resume" },
+      ];
+---
+
+<div class="container site-nav-wrap">
+  {showLanguageSwitcher && <LanguageSwitcher />}
+  <nav class="site-nav" aria-label="Primary">
+    {
+      items.map(({ href, label }) => {
+        const normalizedHref = href.replace(/\/+$/, "") || "/";
+        const isActive = pathname === normalizedHref;
+
+        return (
+          <a class:list={[{ active: isActive }]} href={href} aria-current={isActive ? "page" : undefined}>
+            {label}
+          </a>
+        );
+      })
+    }
+  </nav>
+</div>

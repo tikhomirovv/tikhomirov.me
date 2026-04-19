@@ -1,10 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import LanguageSwitcher from "../LanguageSwitcher.astro";
+import SiteNav from "../SiteNav.astro";
 import { getEntry, render } from "astro:content";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import type { Lang } from "../../i18n/config";
-import { homeFooter } from "../../i18n/ui";
 
 interface Props {
   lang: Lang;
@@ -20,23 +18,85 @@ if (!entry) {
 
 const { Content } = await render(entry);
 const { title } = entry.data;
-
-const portfolioHref = getRelativeLocaleUrl(lang, "portfolio");
-const cvLabel = homeFooter[lang].cv;
 ---
 
 <Layout title={title} lang={lang}>
-  <div class="container lang-bar-wrap">
-    <LanguageSwitcher />
-  </div>
+  <SiteNav lang={lang} />
   <div class="container">
     <Content />
 
-    <p>
-      <a href={portfolioHref}>{cvLabel}</a> |
-      <a href="https://github.com/tikhomirovv" target="_blank">github</a> |
-      <a href="https://gitlab.com/vtikhomirov" target="_blank">gitlab</a> |
-      <a href="mailto:v.tikhomirov.dev+site@gmail.com" target="_blank">email</a>
-    </p>
+    {
+      lang === "en" && (
+        <>
+          <section class="section-block">
+            <h2>Best-fit work</h2>
+            <div class="card-grid">
+              <article class="site-card">
+                <h3>Backend-heavy product areas</h3>
+                <p>APIs, business logic, critical workflows, reliability, and long-running systems.</p>
+              </article>
+              <article class="site-card">
+                <h3>SaaS and internal tools</h3>
+                <p>Products that need pragmatic engineering, careful ownership, and steady delivery.</p>
+              </article>
+              <article class="site-card">
+                <h3>Migrations and optimization</h3>
+                <p>Security hardening, billing flows, PostgreSQL work, performance fixes, and system cleanup.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <h2>Selected proof</h2>
+            <div class="proof-list">
+              <article class="proof-item">
+                <h3>MindLog</h3>
+                <p>Built and run with major solo ownership across backend, infrastructure, billing, and product-critical systems.</p>
+              </article>
+              <article class="proof-item">
+                <h3>Go mobile backend</h3>
+                <p>Reduced a slow dashboard flow from 20+ seconds to around 1 second and handled business-logic-heavy backend work.</p>
+              </article>
+              <article class="proof-item">
+                <h3>Call-center CRM</h3>
+                <p>Reworked a fragile bonus-calculation subsystem around safer recalculation, raw data preservation, and PostgreSQL-heavy improvements.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <h2>Explore the site</h2>
+            <div class="card-grid">
+              <article class="site-card">
+                <h3><a href="/selected-work">Selected work</a></h3>
+                <p>Short case-study style summaries of the strongest backend and product work.</p>
+              </article>
+              <article class="site-card">
+                <h3><a href="/work-with-me">Work with me</a></h3>
+                <p>Preferred collaboration format, best-fit projects, and how I usually work.</p>
+              </article>
+              <article class="site-card">
+                <h3><a href="/portfolio">Resume</a></h3>
+                <p>A structured background summary with core experience, stack, and working style.</p>
+              </article>
+              <article class="site-card">
+                <h3><a href="/contact">Contact</a></h3>
+                <p>The fastest ways to reach out and what information is useful to include.</p>
+              </article>
+            </div>
+          </section>
+        </>
+      )
+    }
+
+    <section class="section-block contact-strip">
+      <h2>Links</h2>
+      <p>
+        <a href="https://mindlog.app" target="_blank">MindLog</a> |
+        <a href="https://github.com/tikhomirovv" target="_blank">GitHub</a> |
+        <a href="https://gitlab.com/vtikhomirov" target="_blank">GitLab</a> |
+        <a href="mailto:v.tikhomirov.dev+site@gmail.com" target="_blank">Email</a>
+      </p>
+    </section>
   </div>
 </Layout>

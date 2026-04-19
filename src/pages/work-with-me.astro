@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteNav from "../components/SiteNav.astro";
+---
+
+<Layout
+  title="Work With Me | Valerii Tikhomirov"
+  lang="en"
+  description="How Valerii Tikhomirov works, what projects are the best fit, and what collaboration formats make sense."
+>
+  <SiteNav lang="en" showLanguageSwitcher={false} />
+
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">Work with me</p>
+      <h1>Best fit for backend-heavy product work that needs ownership and reliable delivery.</h1>
+      <p class="lead">
+        I work best when I can take responsibility for an important backend area, understand the real
+        product constraints, and move the work forward carefully without constant supervision.
+      </p>
+    </header>
+
+    <section class="section-block">
+      <h2>What I help with</h2>
+      <div class="card-grid">
+        <article class="site-card">
+          <h3>Critical backend systems</h3>
+          <p>APIs, business logic, internal services, integrations, and product-critical workflows.</p>
+        </article>
+        <article class="site-card">
+          <h3>Money, risk, and correctness</h3>
+          <p>Billing, subscriptions, recalculation logic, user data, and live production systems that need care.</p>
+        </article>
+        <article class="site-card">
+          <h3>Modernization and cleanup</h3>
+          <p>Migrations, performance fixes, PostgreSQL-heavy optimization, and safer architecture around fragile areas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2>Best-fit projects</h2>
+      <ul>
+        <li>SaaS products and internal tools with meaningful backend complexity.</li>
+        <li>Existing systems that need improvement, stabilization, or deeper ownership.</li>
+        <li>Product areas involving subscriptions, payments, permissions, security, or long-running workflows.</li>
+        <li>Backend services that need pragmatic engineering judgment rather than constant management.</li>
+      </ul>
+    </section>
+
+    <section class="section-block">
+      <h2>How I usually work</h2>
+      <ul>
+        <li>I prefer to understand the real problem first, not just the requested patch.</li>
+        <li>I am comfortable working independently, especially in asynchronous remote collaboration.</li>
+        <li>I am careful with production risk, user data, and money-related logic.</li>
+        <li>I am most useful when the work requires steady ownership, not task-factory execution.</li>
+        <li>I use AI tooling to move faster, but review, judgment, and responsibility stay on the engineering side.</li>
+      </ul>
+    </section>
+
+    <section class="section-block">
+      <h2>Preferred engagement model</h2>
+      <div class="card-grid">
+        <article class="site-card">
+          <h3>Remote</h3>
+          <p>Flexible remote collaboration is the default and the best fit.</p>
+        </article>
+        <article class="site-card">
+          <h3>Project-based or contract</h3>
+          <p>I am most interested in focused work with clear outcomes, ownership, and practical scope.</p>
+        </article>
+        <article class="site-card">
+          <h3>Part-time friendly</h3>
+          <p>Ongoing part-time product support can work well when the role is built around trust and delivery.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2>Probably not the best fit</h2>
+      <ul>
+        <li>Full-time office-style roles centered around availability rather than outcomes.</li>
+        <li>Commodity coding work where ownership is neither wanted nor useful.</li>
+        <li>Heavily supervised setups with constant hand-holding or excessive process overhead.</li>
+      </ul>
+    </section>
+
+    <section class="section-block cta-block">
+      <h2>Next step</h2>
+      <p>
+        If your team needs help with a backend-heavy product area, feel free to <a href="/contact">reach out</a>.
+        A short note about the product, the problem, and the expected collaboration format is enough to start.
+      </p>
+    </section>
+  </div>
+</Layout>

@@ -3,11 +3,9 @@
  * Renders portfolio markdown for the active locale.
  */
 import Layout from "../../layouts/Layout.astro";
-import LanguageSwitcher from "../LanguageSwitcher.astro";
+import SiteNav from "../SiteNav.astro";
 import { getEntry, render } from "astro:content";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import type { Lang } from "../../i18n/config";
-import { portfolioUi } from "../../i18n/ui";
 
 interface Props {
   lang: Lang;
@@ -23,19 +21,20 @@ if (!entry) {
 
 const { Content } = await render(entry);
 const { title } = entry.data;
-
-const homeHref = getRelativeLocaleUrl(lang, "");
+const showLegacyBackLink = lang === "ru";
 ---
 
 <Layout title={title} lang={lang}>
-  <div class="container lang-bar-wrap">
-    <LanguageSwitcher />
-  </div>
+  <SiteNav lang={lang} />
   <div class="container md-content">
     <Content />
-    <p class="back">
-      <a href={homeHref}>{portfolioUi[lang].back}</a>
-    </p>
+    {
+      showLegacyBackLink && (
+        <p class="back">
+          <a href="/ru">← На главную</a>
+        </p>
+      )
+    }
   </div>
 </Layout>
 

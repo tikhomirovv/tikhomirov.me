@@ -10,9 +10,10 @@ interface Props {
   title: string;
   /** BCP 47 language tag for <html lang>. */
   lang?: Lang;
+  description?: string;
 }
 
-const { title, lang = defaultLang } = Astro.props;
+const { title, lang = defaultLang, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,6 +22,7 @@ const { title, lang = defaultLang } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    {description && <meta name="description" content={description} />}
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
   <body class="terminal">
