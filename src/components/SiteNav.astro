@@ -35,7 +35,11 @@ const items =
         const isActive = pathname === normalizedHref;
 
         return (
-          <a class:list={[{ active: isActive }]} href={href} aria-current={isActive ? "page" : undefined}>
+          <a
+            class:list={[{ active: isActive }]}
+            href={href}
+            aria-current={isActive ? "page" : undefined}
+          >
             {label}
           </a>
         );
