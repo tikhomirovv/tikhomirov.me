@@ -2,6 +2,7 @@
 // Base styles from the framework, then site theme + layout tweaks (see global.css).
 import "terminal.css";
 import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
 import YandexMetrika from "../components/YandexMetrika.astro";
 import type { Lang } from "../i18n/config";
 import { defaultLang } from "../i18n/config";
@@ -30,6 +31,7 @@ const { title, lang = defaultLang, description } = Astro.props;
     <main class="site-main">
       <slot />
     </main>
+    <SiteFooter />
     <YandexMetrika />
   </body>
 </html>

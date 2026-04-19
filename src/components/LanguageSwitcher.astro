@@ -1,6 +1,7 @@
 ---
 /**
  * Link to the same logical route in the other locale (astro:i18n URLs).
+ * For English-only routes with no /ru mirror yet, shows a muted label instead of a broken link.
  */
 import { getRelativeLocaleUrl } from "astro:i18n";
 import {
@@ -13,10 +14,42 @@ const pathname = Astro.url.pathname;
 const current = langFromPath(pathname);
 const target = otherLocale(current);
 const key = routeKeyFromPath(pathname);
+
+/** Route keys that only have an English page today (no `src/pages/ru/...` counterpart). */
+const enOnlyRouteKeys = new Set(["selected-work", "work-with-me"]);
+
+const noAlternateLocalePage =
+  current === "en" && target === "ru" && enOnlyRouteKeys.has(key);
+
 const href = getRelativeLocaleUrl(target, key);
-const label = target === "ru" ? "Русский" : "English";
+/** Two-letter locale code shown in the header (target locale = where the link goes). */
+const label = target;
+
+const linkAriaLabel =
+  target === "ru" ? "Switch to Russian" : "Switch to English";
+const mutedAriaLabel = "Russian locale: this page is English only";
+const mutedTitle = "This page is available in English only.";
 ---
 
 <p class="lang-switch">
-  <a href={href} hreflang={target} lang={target}>{label}</a>
+  {
+    noAlternateLocalePage ? (
+      <span
+        class="lang-switch-muted"
+        title={mutedTitle}
+        aria-label={mutedAriaLabel}
+      >
+        {label}
+      </span>
+    ) : (
+      <a
+        href={href}
+        hreflang={target}
+        lang={target}
+        aria-label={linkAriaLabel}
+      >
+        {label}
+      </a>
+    )
+  }
 </p>

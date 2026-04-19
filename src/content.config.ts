@@ -3,20 +3,20 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 /**
- * Markdown per locale: src/content/home/<lang>/…
+ * Markdown / MDX per locale: src/content/home/<lang>/… (hero uses MDX for page-intro + eyebrow).
  */
 const home = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/home" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/home" }),
   schema: z.object({
     title: z.string(),
   }),
 });
 
 /**
- * Markdown per locale: src/content/portfolio/<lang>/…
+ * Markdown / MDX per locale: src/content/portfolio/<lang>/… (resume uses MDX for job cards).
  */
 const portfolio = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/portfolio" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/portfolio" }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),

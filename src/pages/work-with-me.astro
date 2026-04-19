@@ -8,7 +8,7 @@ import SiteNav from "../components/SiteNav.astro";
   lang="en"
   description="How Valerii Tikhomirov works, what projects are the best fit, and what collaboration formats make sense."
 >
-  <SiteNav lang="en" showLanguageSwitcher={false} />
+  <SiteNav lang="en" />
 
   <div class="container">
     <header class="page-intro">
@@ -22,16 +22,16 @@ import SiteNav from "../components/SiteNav.astro";
 
     <section class="section-block">
       <h2>What I help with</h2>
-      <div class="card-grid">
-        <article class="site-card">
+      <div class="proof-list">
+        <article class="proof-item">
           <h3>Critical backend systems</h3>
           <p>APIs, business logic, internal services, integrations, and product-critical workflows.</p>
         </article>
-        <article class="site-card">
+        <article class="proof-item">
           <h3>Money, risk, and correctness</h3>
           <p>Billing, subscriptions, recalculation logic, user data, and live production systems that need care.</p>
         </article>
-        <article class="site-card">
+        <article class="proof-item">
           <h3>Modernization and cleanup</h3>
           <p>Migrations, performance fixes, PostgreSQL-heavy optimization, and safer architecture around fragile areas.</p>
         </article>
@@ -61,16 +61,16 @@ import SiteNav from "../components/SiteNav.astro";
 
     <section class="section-block">
       <h2>Preferred engagement model</h2>
-      <div class="card-grid">
-        <article class="site-card">
+      <div class="proof-list">
+        <article class="proof-item">
           <h3>Remote</h3>
           <p>Flexible remote collaboration is the default and the best fit.</p>
         </article>
-        <article class="site-card">
+        <article class="proof-item">
           <h3>Project-based or contract</h3>
           <p>I am most interested in focused work with clear outcomes, ownership, and practical scope.</p>
         </article>
-        <article class="site-card">
+        <article class="proof-item">
           <h3>Part-time friendly</h3>
           <p>Ongoing part-time product support can work well when the role is built around trust and delivery.</p>
         </article>
@@ -89,7 +89,7 @@ import SiteNav from "../components/SiteNav.astro";
     <section class="section-block cta-block">
       <h2>Next step</h2>
       <p>
-        If your team needs help with a backend-heavy product area, feel free to <a href="/contact">reach out</a>.
+        If your team needs help with a backend-heavy product area, feel free to <a href="#site-footer">reach out</a>.
         A short note about the product, the problem, and the expected collaboration format is enough to start.
       </p>
     </section>

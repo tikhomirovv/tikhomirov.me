@@ -16,7 +16,7 @@ const { lang } = Astro.props;
 const entryId = `${lang}/resume` as const;
 const entry = await getEntry("portfolio", entryId);
 if (!entry) {
-  throw new Error(`Missing portfolio content: ${entryId}.md`);
+  throw new Error(`Missing portfolio content: ${entryId}.mdx`);
 }
 
 const { Content } = await render(entry);
