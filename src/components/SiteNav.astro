@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import LanguageSwitcher from "./LanguageSwitcher.astro";
+// import LanguageSwitcher from "./LanguageSwitcher.astro";
 import type { Lang } from "../i18n/config";
 
 interface Props {
@@ -16,11 +16,11 @@ const items =
         { href: getRelativeLocaleUrl(lang, ""), label: "home" },
         { href: "/selected-work", label: "selected work" },
         { href: "/work-with-me", label: "work with me" },
-        { href: getRelativeLocaleUrl(lang, "portfolio"), label: "resume" },
+        { href: getRelativeLocaleUrl(lang, "resume"), label: "resume" },
       ]
     : [
         { href: getRelativeLocaleUrl(lang, ""), label: "home" },
-        { href: getRelativeLocaleUrl(lang, "portfolio"), label: "resume" },
+        { href: getRelativeLocaleUrl(lang, "resume"), label: "resume" },
       ];
 ---
 
@@ -43,5 +43,9 @@ const items =
       })
     }
   </nav>
-  <LanguageSwitcher />
+  {/*
+    Language switcher: temporarily disabled — site surface is English-only for now.
+    Restore: import LanguageSwitcher + <LanguageSwitcher /> below the nav.
+  */}
+  {/* <LanguageSwitcher /> */}
 </div>

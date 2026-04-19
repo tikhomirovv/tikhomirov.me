@@ -2,7 +2,7 @@ import type { Lang } from "./config";
 
 /**
  * Map URL pathname to the second argument of getRelativeLocaleUrl (route segment).
- * Home → ""; portfolio → "portfolio".
+ * Home → ""; resume page → "resume".
  */
 export function routeKeyFromPath(pathname: string): string {
   const trimmed = pathname.replace(/\/+$/, "");
